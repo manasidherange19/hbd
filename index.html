@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ----- RESET & GLOBAL ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-deep: #0a0612;
+            --bg-card: rgba(15, 10, 25, 0.7);
+            --rose: #e8a0b4;
+            --rose-bright: #f4b8c8;
+            --rose-deep: #c97b8e;
+            --gold: #d4a574;
+            --white: #f5eef8;
+            --gray: #9a8fa8;
+            --glow-pink: rgba(232, 160, 180, 0.35);
+            --glow-rose: rgba(201, 123, 142, 0.25);
+        }
+
+        body {
+            background: var(--bg-deep);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            color: var(--white);
+            padding: 1.5rem 1rem;
+            position: relative;
+            font-family: 'Poppins', system-ui, sans-serif;
+            background-image:
+                radial-gradient(ellipse at 15% 20%, rgba(201, 123, 142, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 75%, rgba(232, 160, 180, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, #120a1a 0%, #0a0612 100%);
+        }
+
+        /* ----- SUBTLE GRAIN TEXTURE ----- */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ----- FLOATING HEARTS BACKGROUND ----- */
+        .hearts-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hearts-bg i {
+            position: absolute;
+            bottom: -10%;
+            color: var(--rose);
+            opacity: 0;
+            font-size: 1.5rem;
+            animation: floatUp linear infinite;
+            filter: drop-shadow(0 0 10px var(--glow-pink));
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.6);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.35;
+            }
+            90% {
+                opacity: 0.35;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg) scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        /* ----- TWINKLING STARS ----- */
+        .stars-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle ease-in-out infinite;
+            box-shadow: 0 0 8px var(--rose-bright), 0 0 16px var(--glow-pink);
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.1;
+                transform: scale(0.6);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.3);
+            }
+        }
+
+        /* ----- MAIN CARD ----- */
+        .love-card {
+            position: relative;
+            z-index: 10;
+            max-width: 1050px;
+            width: 100%;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(232, 160, 180, 0.25);
+            border-radius: 36px;
+            padding: 3rem 2.5rem;
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, 0.7),
+                0 0 0 1px rgba(232, 160, 180, 0.1),
+                0 0 80px rgba(201, 123, 142, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            animation: cardGlow 5s ease-in-out infinite alternate;
+            margin: 2rem 0;
+        }
+
+        @keyframes cardGlow {
+            0% {
+                box-shadow:
+                    0 30px 70px rgba(0, 0, 0, 0.7),
+                    0 0 0 1px rgba(232, 160, 180, 0.1),
+                    0 0 80px rgba(201, 123, 142, 0.08),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            }
+            100% {
+                box-shadow:
+                    0 40px 90px rgba(0, 0, 0, 0.8),
+                    0 0 0 1px rgba(232, 160, 180, 0.2),
+                    0 0 120px rgba(201, 123, 142, 0.15),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            }
+        }
+
+        /* ----- HEADER ----- */
+        .love-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .love-header .header-icon {
+            font-size: 2.2rem;
+            color: var(--rose);
+            margin-bottom: 1rem;
+            display: block;
+            animation: heartPulse 2s infinite;
+            filter: drop-shadow(0 0 20px var(--glow-pink));
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.18); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+
+        .love-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--white);
+            margin-bottom: 0.6rem;
+            letter-spacing: 1px;
+        }
+
+        .love-header h1 span {
+            display: block;
+            font-style: italic;
+            font-weight: 400;
+            background: linear-gradient(135deg, var(--rose-bright), var(--rose-deep), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 30px var(--glow-pink));
+        }
+
+        .love-header .subtitle {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-top: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .love-header .subtitle .line {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--rose-deep), transparent);
+        }
+
+        .love-header .subtitle i {
+            color: var(--rose);
+            font-size: 0.7rem;
+        }
+
+        /* ----- PHOTO SECTION ----- */
+        .photo-section {
+            margin: 2.5rem 0;
+        }
+
+        .photo-section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+
+        .photo-section-label .line {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--rose-deep), transparent);
+        }
+
+        .photo-section-label i {
+            color: var(--rose);
+            font-size: 0.8rem;
+        }
+
+        /* ----- PHOTO GRID ----- */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .photo-item {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #150e1f;
+            border: 1px solid rgba(232, 160, 180, 0.2);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            isolation: isolate;
+        }
+
+        .photo-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(10, 6, 18, 0.85) 100%);
+            z-index: 2;
+            opacity: 0.7;
+            transition: opacity 0.4s;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(232, 160, 180, 0.7);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.7),
+                0 0 35px rgba(232, 160, 180, 0.2);
+        }
+
+        .photo-item:hover::before {
+            opacity: 0.4;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s;
+            display: block;
+            filter: saturate(0.85) brightness(0.95);
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.08);
+            filter: saturate(1.05) brightness(1);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 10px;
+            left: 12px;
+            right: 12px;
+            z-index: 3;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rose-bright);
+            opacity: 0;
+            transform: translateY(6px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .photo-item:hover .photo-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ----- LOVE NOTE ----- */
+        .love-note {
+            margin: 2.5rem 0 1.5rem;
+            padding: 2rem 2.5rem;
+            background: rgba(232, 160, 180, 0.04);
+            border-left: 2px solid var(--rose-deep);
+            border-right: 2px solid var(--rose-deep);
+            border-radius: 24px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .love-note:hover {
+            background: rgba(232, 160, 180, 0.07);
+            box-shadow: 0 0 40px rgba(232, 160, 180, 0.06);
+        }
+
+        .love-note i.quote-icon {
+            color: var(--rose-deep);
+            font-size: 1.5rem;
+            opacity: 0.4;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .love-note p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.9;
+            color: #d8ccd8;
+            font-weight: 400;
+        }
+
+        .love-note p .highlight {
+            color: var(--rose-bright);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* ----- FOOTER ----- */
+        .love-footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(232, 160, 180, 0.12);
+        }
+
+        .love-footer .footer-hearts {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .love-footer .footer-hearts i {
+            color: var(--rose);
+            font-size: 0.85rem;
+            animation: heartPulse 1.8s infinite;
+            filter: drop-shadow(0 0 10px var(--glow-pink));
+        }
+
+        .love-footer .footer-hearts i:nth-child(2) {
+            animation-delay: 0.3s;
+            font-size: 1rem;
+        }
+
+        .love-footer .footer-hearts i:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .love-footer .footer-text {
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .love-footer .footer-text .name {
+            color: var(--rose-bright);
+            font-weight: 500;
+        }
+
+        .love-footer .footer-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1rem;
+            padding: 0.4rem 1.4rem;
+            background: rgba(232, 160, 180, 0.06);
+            border: 1px solid rgba(232, 160, 180, 0.15);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--rose-deep);
+        }
+
+        .love-footer .footer-date i {
+            font-size: 0.65rem;
+            color: var(--rose);
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 900px) {
+            .photo-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .love-card {
+                padding: 2.2rem 1.8rem;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .love-card {
+                padding: 1.8rem 1.2rem;
+                border-radius: 26px;
+            }
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            .love-note {
+                padding: 1.5rem 1.2rem;
+            }
+            .love-header .subtitle {
+                letter-spacing: 2px;
+                font-size: 0.75rem;
+            }
+            .love-header .subtitle .line {
+                width: 25px;
+            }
+            .photo-section-label {
+                letter-spacing: 3px;
+                font-size: 0.65rem;
+                gap: 0.8rem;
+            }
+            .photo-section-label .line {
+                width: 30px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.6rem;
+            }
+            .love-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Twinkling Stars Background -->
+    <div class="stars-bg" id="starsContainer"></div>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsContainer"></div>
+
+    <!-- MAIN LOVE CARD -->
+    <div class="love-card">
+
+        <!-- HEADER -->
+        <div class="love-header">
+            <i class="fas fa-heart header-icon"></i>
+            <h1>
+                Happy Birthday
+                <span>My Love</span>
+            </h1>
+            <div class="subtitle">
+                <span class="line"></span>
+                <i class="fas fa-star"></i>
+                <span>today is all about you</span>
+                <i class="fas fa-star"></i>
+                <span class="line"></span>
+            </div>
+        </div>
+
+        <!-- PHOTO SECTION -->
+        <div class="photo-section">
+            <div class="photo-section-label">
+                <span class="line"></span>
+                <i class="fas fa-camera-retro"></i>
+                <span>my favorite person</span>
+                <i class="fas fa-camera-retro"></i>
+                <span class="line"></span>
+            </div>
+
+            <div class="photo-grid">
+                <!-- PHOTO 1 -->
+                <div class="photo-item">
+                    <img src="photo1.jpeg" alt="His Photo 1">
+                    <span class="photo-caption">baby</span>
+                </div>
+                <!-- PHOTO 2 -->
+                <div class="photo-item">
+                    <img src="photo2.jpeg" alt="His Photo 2">
+                    <span class="photo-caption">kuchupuchu</span>
+                </div>
+                <!-- PHOTO 3 -->
+                <div class="photo-item">
+                    <img src="photo3.jpeg" alt="His Photo 3">
+                    <span class="photo-caption">my safe place</span>
+                </div>
+                <!-- PHOTO 4 -->
+                <div class="photo-item">
+                    <img src="photo4.jpeg" alt="His Photo 4">
+                    <span class="photo-caption">forever yours</span>
+                </div>
+                <!-- PHOTO 5 -->
+                <div class="photo-item">
+                    <img src="photo5.jpeg" alt="His Photo 5">
+                    <span class="photo-caption">love youu</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOVE NOTE -->
+        <div class="love-note">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p>
+                You make every day feel like a <span class="highlight">beautiful dream</span>.<br>
+                Thank you for being mine. Happy birthday, my love. 🤍
+            </p>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="love-footer">
+            <div class="footer-hearts">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="footer-text">
+                made with love for <span class="name">you</span>
+            </div>
+            <div class="footer-date">
+                <i class="fas fa-birthday-cake"></i>
+                your special day
+                <i class="fas fa-birthday-cake"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        (function() {
+            // ----- GENERATE TWINKLING STARS -----
+            const starsContainer = document.getElementById('starsContainer');
+            const starCount = 120;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+
+                const size = Math.random() * 2.5 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+
+                const duration = Math.random() * 4 + 2;
+                star.style.animationDuration = duration + 's';
+                star.style.animationDelay = Math.random() * 5 + 's';
+
+                const colors = ['#ffffff', '#f4b8c8', '#e8a0b4', '#f5eef8'];
+                star.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+                starsContainer.appendChild(star);
+            }
+
+            // ----- GENERATE FLOATING HEARTS -----
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heartCount = 20;
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('i');
+                heart.className = 'fas fa-heart';
+
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 1.2 + 0.5) + 'rem';
+
+                const duration = Math.random() * 12 + 10;
+                heart.style.animationDuration = duration + 's';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+
+                const opacity = Math.random() * 0.2 + 0.15;
+                heart.style.color = `rgba(232, 160, 180, ${opacity})`;
+
+                heartsContainer.appendChild(heart);
+            }
+
+            // ----- SUBTLE PARALLAX ON PHOTO CARDS -----
+            const photoItems = document.querySelectorAll('.photo-item');
+
+            photoItems.forEach(item => {
+                item.addEventListener('mousemove', (e) => {
+                    const rect = item.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = (y - centerY) / 30;
+                    const rotateY = (centerX - x) / 30;
+
+                    item.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = '';
+                });
+            });
+        })();
+    </script>
+
+    <!-- 
+        ============================================================
+        HOW TO ADD YOUR 5 PHOTOS OF HIM (JPEG FILES)
+        ============================================================
+        
+        1. Save his 5 JPEG photos in the same folder as this HTML file.
+           Good names: him1.jpg, him2.jpg, him3.jpg, him4.jpg, him5.jpg
+        
+        2. Find the <div class="photo-grid"> section in the HTML above.
+        
+        3. Replace each placeholder image source with your actual file:
+        
+           <img src="him1.jpg" alt="His Photo 1">
+           <img src="him2.jpg" alt="His Photo 2">
+           <img src="him3.jpg" alt="His Photo 3">
+           <img src="him4.jpg" alt="His Photo 4">
+           <img src="him5.jpg" alt="His Photo 5">
+        
+        4. You can also change the small captions under each photo:
+        
+           <span class="photo-caption">my everything</span>
+           <span class="photo-caption">so handsome</span>
+           <span class="photo-caption">my safe place</span>
+           <span class="photo-caption">forever yours</span>
+           <span class="photo-caption">my best friend</span>
+        
+        5. Done! The photos will appear in the beautiful, 
+           soft-glow frames with hover captions and effects.
+        
+        ============================================================
+        NOTE: The current placeholder images are from picsum.photos.
+        Replace them with his actual photos for the final version.
+        ============================================================
+    -->
+
+</body>
+</html>
